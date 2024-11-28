@@ -10,9 +10,5 @@ cmds = [
 [phases.caddy]
 nixPkgs = ["caddy"]
 
-[phases.fmt]
-dependsOn = ["caddy"]
-cmds = ["caddy fmt --overwrite Caddyfile"]
-
 [start]
 cmd = "caddy run --config Caddyfile --adapter caddyfile"

@@ -5,35 +5,8 @@
 }
 
 :{$PORT} {
-    # Serve Vite/React dist directory
-    root * /src/dist
-    
-    # Enable compression
+    root * /app/dist
     encode gzip
-
-    # Serve static files
     file_server
-
-    # SPA routing - send all requests to index.html
     try_files {path} /index.html
-    
-    # Security headers
-    header {
-        # Prevent clickjacking
-        X-Frame-Options "DENY"
-        # Enable XSS protection
-        X-XSS-Protection "1; mode=block"
-        # Prevent MIME type sniffing
-        X-Content-Type-Options "nosniff"
-        # Referrer policy
-        Referrer-Policy "strict-origin-when-cross-origin"
-    }
-
-    # Caching for static assets
-    @static_assets {
-        path *.js *.css *.svg *.png *.jpg *.jpeg *.gif *.woff *.woff2
-    }
-    header @static_assets {
-        Cache-Control "public, max-age=31536000, immutable"
-    }
 }
