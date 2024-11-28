@@ -1,14 +1,18 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
+import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   build: {
-    // Reduce chunk size warning threshold
-    chunkSizeWarningLimit: 600, 
+    chunkSizeWarningLimit: 600,
     rollupOptions: {
       output: {
-        // Split large chunks
         manualChunks(id) {
           if (id.includes('node_modules')) {
             return 'vendor';
@@ -16,7 +20,6 @@ export default defineConfig({
         }
       }
     },
-    // Enable code splitting
     sourcemap: false,
     minify: 'terser',
     terserOptions: {
@@ -26,4 +29,4 @@ export default defineConfig({
       }
     }
   }
-})
+});

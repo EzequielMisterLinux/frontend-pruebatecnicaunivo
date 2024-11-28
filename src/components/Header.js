@@ -7,6 +7,7 @@ var Header = function (_a) {
     var _c = useTranslation(), t = _c.t, i18n = _c.i18n;
     var handleOpenModal = function () { return setIsModalOpen(true); };
     var handleCloseModal = function () { return setIsModalOpen(false); };
+    //return xd
     return (React.createElement(AppBar, { position: "static" },
         React.createElement(Toolbar, null,
             React.createElement(Typography, { variant: "h6", component: "div", sx: { flexGrow: 1 } }, t('taskManager')),

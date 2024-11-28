@@ -1,4 +1,5 @@
-import tw, { styled } from 'twin.macro';
+import styled from "twin.macro";
+import tw from "twin.macro";
 
 export const FormContainer = styled.form`
   ${tw`space-y-4 mb-8 p-6 bg-gray-900 rounded-lg shadow-lg`}
